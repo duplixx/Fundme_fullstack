@@ -79,17 +79,15 @@ async function getBalance() {
  
   // withdraw all transactions function
 async function withdraw() {
-      setTimeout(()=>{
         document.getElementById("toast-text").innerHTML = "Withdrawing...";
-      },5000)
         if (typeof window.ethereum !== "undefined") {
           const provider = new ethers.providers.Web3Provider(window.ethereum)
           await provider.send('eth_requestAccounts', [])
           const signer = provider.getSigner()
           const contract = new ethers.Contract(contractAddress, abi, signer)
           try {
-            const transactionsResponse = await contract.withdraw();
-            await listenForTransactionMine(transactionsResponse, provider);
+            const transactionResponse = await contract.withdraw();
+            await listenForTransactionMine(transactionResponse, provider);
           } catch (error) {
             console.log(error)
           }

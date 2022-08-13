@@ -78,8 +78,7 @@ async function getBalance() {
 }
  
   // withdraw all transactions function
-
-   async function withdraw() {
+async function withdraw() {
       setTimeout(()=>{
         document.getElementById("toast-text").innerHTML = "Withdrawing...";
       },5000)
@@ -94,9 +93,7 @@ async function getBalance() {
           } catch (error) {
             console.log(error)
           }
-        } else {
-          else {
-            document.getElementById("withdrawBtn").innerHTML = "Please connect with MetaMask";
         }
+      }
     
-}
+    
